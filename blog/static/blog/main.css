@@ -52,6 +52,7 @@ a.article-title:hover {
 
 .article-content {
     white-space: pre-line;
+    font-size: 0.9rem;
 }
 
 .article-img {
