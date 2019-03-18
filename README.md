@@ -1,1 +1,1 @@
-#Blog of Others is a blog that anyone can post.
+__Blog of Others is a blog that anyone can post.__
