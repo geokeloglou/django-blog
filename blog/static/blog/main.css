@@ -17,7 +17,7 @@ body {
   }
   
   .site-header .navbar-nav .nav-link {
-    color: #cbd5db;
+    color: #ffffff;
   }
   
   .site-header .navbar-nav .nav-link:hover {
@@ -29,7 +29,7 @@ body {
   }
   
   .content-section {
-    background: #ffffff;
+    background: #f3fcfd;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
