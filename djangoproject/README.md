@@ -1,1 +1,1 @@
-__Blog of Others is a blog that anyone can post.__
+__Healthspot is a online publishing platform that anyone can post about health and health related issues.__
