@@ -33,12 +33,16 @@ ul {
     font-weight: 500;
 }
 
+.material-icons {
+    font-size: 1rem;
+}
+
 .content-section {
     background: #f3fcfd;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .article-title {
@@ -48,6 +52,7 @@ ul {
 a.article-title:hover {
     color: #1c8d9c;
     text-decoration: none;
+    text-decoration: underline;
 }
 
 .article-content {
@@ -56,8 +61,8 @@ a.article-title:hover {
 }
 
 .article-img {
-    height: 65px;
-    width: 65px;
+    height: 45px;
+    width: 45px;
     margin-right: 16px;
 }
 

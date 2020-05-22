@@ -1,0 +1,132 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a5163f4ebf.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+
+    {% if title %}
+        <title>Health Spot - {{ title }}</title>
+    {% else %}
+        <title>Health Spot</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="/">Healthspot</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{% url 'blog-home' %}">Feed</a>
+                    <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+
+                    {% else %}
+                        <a class="nav-item nav-link" href="{% url 'login' %}">Sign in</a>
+                        <a class="nav-item nav-link border border-white rounded text-center" href="{% url 'register' %}">Get started</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+    <main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+            <div class="content-section text-center">
+                <a href="https://www.google.com/search?sxsrf=ALeKk03vI8M1II_VIU6kETm6FxD-1c7QwA:1589212408478&q=COVID-19&sa=X&ved=2ahUKEwiwqdHIlazpAhXO2KQKHepkBfAQzmcoAHoECAsQAQ&biw=1296&bih=916">
+                    <p class="bg-danger text-center text-light rounded">
+                        <i class="material-icons">warning</i>
+                        COVID-19 alert
+                    </p>
+                </a>
+                <h3>Trending</h3>
+                <p class="text-muted">
+                    <ul class="list-group-item">
+                        <li class="list-group-item list-group-item-light">#</li>
+                    </ul>
+                </p>
+                </p>
+                <h3>Quick links</h3>
+                <p class="text-muted">
+                    <ul class="list-group-item">
+                        <li class="list-group-item list-group-item-light">
+                            <a href="https://www.worldometers.info/coronavirus/#countries">COVID-19 Live Update</a>
+                        </li>
+                        <li class="list-group-item list-group-item-light">
+                            <a href="https://www.moh.gov.gr/">Moh Gov</a>
+                        </li>
+                        <li class="list-group-item list-group-item-light">
+                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses">Q&A on COVID-19</a>
+                        </li>
+                        <li class="list-group-item list-group-item-light">
+                            <a href="https://www.who.int/">World Health Organization</a>
+                        </li>
+                        <li class="list-group-item list-group-item-light">
+                            <a href="https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic">COVID-19 Wiki</a>
+                        </li>
+                    </ul>
+                </p>
+                <h3>Hashtags</h3>
+                <p class="text-muted">
+                    <ul class="list-group-item">
+                        <li class="list-group-item list-group-item-light">#migraine</li>
+                        <li class="list-group-item list-group-item-light">#epilepsy</li>
+                        <li class="list-group-item list-group-item-light">#alcohol</li>
+                    </ul>
+                </p>
+            </div>
+            <section>
+                    <div class="card shadow p-5">
+                        <h3 class="text-center">Subscribe to our newsletter</h3>
+                        <span class="text-center"><i class="fas fa-envelope fa-4x text-danger"></i></span>
+                        <p>Signup for our weekly newsletter to get the latest posts from your favourite publishers.</p>
+                        <form>
+                            <input type="text" class="form-control" placeholder="Enter Your Email">
+                            <button type="submit" class="btn btn-danger btn-block mt-3 rounded-pill">Subscribe</button>
+                        </form>
+                    </div>
+                </section>
+        </div>
+    </div>
+    </main>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
