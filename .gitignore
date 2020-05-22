@@ -1,9 +1,0 @@
-db.sqlite3
-venv/
-*.pyc
-_static/
-__pycache__/
-.cache/
-.pytest_cache/
-media
-.DS_Store
